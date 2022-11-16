@@ -1,0 +1,28 @@
+import mundial.*
+
+
+describe "fiebre mundialista" {
+	
+const lio = new Jugador()
+const angel = new Jugador()
+
+method initialize(){
+	argentina.agregarJugador(lio)
+	argentina.agregarJugador(angel)
+	lio.hacerUnGol(40,"AS",true)
+	lio.hacerUnGol(30,"AS",false)
+	angel.hacerUnGol(10,"PO",true)
+}	
+
+test "goles convertidos por argentina" {
+	assert.equals(3,argentina.cantidadGoles())
+}
+
+test "cantidad de jugadores que convirtieron penales"{
+	assert.equals(2,argentina.cantidadJugadoresPenalistas())
+}
+
+test "pais mas goleado" {
+	assert.equals("AS", argentina.paisMasGoleado())
+}
+}

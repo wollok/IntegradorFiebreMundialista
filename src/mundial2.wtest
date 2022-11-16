@@ -1,0 +1,41 @@
+import mundial2.*
+
+
+describe "fiebre mundialista" {
+
+const argentina = new Pais(nombre ="Argentina")
+const arabia = new Pais(nombre = "Arabia saudita")
+const pol = new Pais(nombre = "Polonia")
+
+
+method initialize(){
+
+	argentina.hacerUnGol("lio",40,arabia,true)
+	argentina.hacerUnGol("lio",30,arabia,false)
+	argentina.hacerUnGol("angel",10,pol,true)
+	arabia.hacerUnGol("tito",15,argentina,true)
+}	
+
+test "goles convertidos por argentina" {
+	assert.equals(3,argentina.cantidadGoles())
+}
+test "goles convertidos por arabia" {
+	assert.equals(1,arabia.cantidadGoles())
+}
+
+test "cantidad de jugadores argentinos que convirtieron penales"{
+	assert.equals(2,argentina.cantidadJugadoresPenalistas())
+}
+test "cantidad de jugadores arabes que convirtieron penales"{
+	assert.equals(1,arabia.cantidadJugadoresPenalistas())
+}
+
+test "pais mas goleado por argentina" {
+	assert.equals(arabia, argentina.paisMasGoleado())
+}
+
+test "pais mas goleado por arabia" {
+	assert.equals(argentina, arabia.paisMasGoleado())
+}
+
+}
