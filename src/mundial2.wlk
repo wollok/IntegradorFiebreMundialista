@@ -19,8 +19,8 @@ class Pais{
 		adversario.tristezaDeHinchas()
 	}
 	
-	method festejoDeHinchas(jugador) {
-		hinchas.forEach{h=>h.festejoGol(jugador)} 
+	method festejoDeHinchas(gol) {
+		hinchas.forEach{h=>h.festejoGol(gol)} 
 	}
 	
 	method tristezaDeHinchas() {
@@ -40,7 +40,7 @@ class Pais{
 	method jugadores() = goles.map{g=>g.jugador()}.asSet()
 			
 	method hizoGolDePenal(jugador)= 
-		goles.any{g=>g.jugador() == jugador}
+		goles.any{g=>g.jugador() == jugador && g.penal()}
 		
 	//El país al que argentina le hizo la mayor cantidad de goles
 	method paisMasGoleado() = 
